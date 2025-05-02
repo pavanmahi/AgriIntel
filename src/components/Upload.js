@@ -47,7 +47,7 @@ const Upload = () => {
     formData.append("file", file);
 
     try {
-      const response = await fetch("https://nithin521-soil-classifier-2.hf.space/predict", {
+      const response = await fetch("https://chintu67-AgriIntel.hf.space/predict", {
         method: "POST",
         body: formData,
         cors: "cors",
@@ -103,18 +103,24 @@ const Upload = () => {
       )}
       {soilInfo && console.log(soilInfo.score)}
       {soilInfo && soilInfo.recommendations && (
-        <div>
-          <h3>
-            Prediction Results: <span>{soilInfo.soil_type}</span>
+        <div style={{ padding: "20px" }}>
+          <h3 style={{ fontSize: "24px", fontWeight: "bold" }}>
+            Prediction Results: <strong>{soilInfo.soil_type}</strong>
           </h3>
-          {Object.values(soilInfo.recommendations).map(
-            (recommendation, index) => (
-              <div key={index}>
-                <h4>{index === 0 ? "Agriculture" : "Industrial"}</h4>
-                <p>{recommendation}</p>
-              </div>
-            )
-          )}
+          {Object.entries(soilInfo.recommendations).map(([category, items], index) => (
+            <div key={index} style={{ marginBottom: "20px" , alignItems:"center"}}>
+              <h4 style={{ fontSize: "20px", marginBottom: "10px" }}>
+                {category.charAt(0).toUpperCase() + category.slice(1)} Recommendations
+              </h4>
+              <ul style={{ marginBottom: "20px" , display : "flex" , justifyContent : "center" }}>
+                <div style={{textAlign:"left"}}>
+                {items.map((item, i) => (
+                  <li key={i} style={{ marginBottom: "5px" }}>{item}</li>
+                ))}
+                </div>
+              </ul>
+            </div>
+          ))}
         </div>
       )}
       {}
