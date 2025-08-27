@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <div className="hero" id="hero">
       <div className="hero-content">
-        <h2>Welcome to Soil Classifier</h2>
+        <h2>Welcome to AgriIntel</h2>
         <p>Identify soil with ease!</p>
         <div className="upload-container">
           <input

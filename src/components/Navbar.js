@@ -8,7 +8,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="logo">
         <FontAwesomeIcon icon={faSeedling} />
-        <h1>Soil Classifier</h1>
+        <h1>AgriIntel</h1>
       </div>
       <ul>
         <li>
